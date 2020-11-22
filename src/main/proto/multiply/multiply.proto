@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package multiply;
+
+option java_package = "com.proto.multiply";
+option java_multiple_files = true;
+
+message Multiply {
+  int32 first_number = 1;
+  int32 second_number = 2;
+}
+
+message MultiplyRequest {
+  Multiply multiply = 1;
+}
+
+message MultiplyResponse {
+  int32 result = 1;
+}
+
+service MultiplyService {
+  //Unary
+  rpc Multiply(MultiplyRequest) returns (MultiplyResponse) {};
+}
